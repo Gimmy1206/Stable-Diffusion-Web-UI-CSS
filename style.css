@@ -397,6 +397,11 @@ div.gradio-gallery.gradio-gallery,
     border-radius: var(--embed-radius) !important;
 }
 
+/* -------------------- Fix Image Size 修正圖片大小 -------------------- */
+.fixed-height.svelte-rlgzoo {
+    height: 100% !important;
+}
+
 /* -------------------- Fix Padding 修正內縮 -------------------- */
 div.panel,
 div.compact,
