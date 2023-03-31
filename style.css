@@ -647,7 +647,7 @@ footer {
 /* -------------------- Token-Counter 提示詞計數器樣式 -------------------- */
 .block.token-counter.token-counter {
     position: absolute;
-    top: -0.4rem;
+    top: 0rem;
     right: 2rem;
     width: auto;
     min-width: 3rem;
