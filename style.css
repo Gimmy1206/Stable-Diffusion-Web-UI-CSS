@@ -1106,6 +1106,7 @@ footer {
 }
 
 .preview.svelte-1tkea93.svelte-1tkea93 {
+    padding: var(--padding-md);
     background-color: var(--background-fill-transparent);
     border-radius: var(--embed-radius);
 }
