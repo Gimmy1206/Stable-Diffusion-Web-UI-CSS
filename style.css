@@ -69,10 +69,10 @@
     --text-xl: 2.2rem;
     --text-xxl: 2.6rem;
 
-    --font: 'Dream', 'ui-sans-serif', 'system-ui', sans-serif;
-    --font-sans: 'Dream', 'ui-sans-serif', 'system-ui', sans-serif;
-    --font-serif: 'Dream', 'ui-serif', 'system-ui', serif;
-    --font-mono: 'Dream Mono', 'ui-monospace', monospace;
+    --font: 'Dream', 'SF Pro Display', 'Segoe UI', 'ui-sans-serif', 'system-ui', sans-serif;
+    --font-sans: 'Dream', 'SF Pro Display', 'Segoe UI', 'ui-sans-serif', 'system-ui', sans-serif;
+    --font-serif: 'Dream', 'SF Pro Display', 'Segoe UI', 'ui-sans-serif', 'system-ui', sans-serif;
+    --font-mono: 'Dream Mono', 'Menlo', 'Consolas', 'ui-monospace', monospace;
 
     --margin-sm: 0;
 
