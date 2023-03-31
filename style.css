@@ -398,7 +398,10 @@ div.gradio-gallery.gradio-gallery,
 }
 
 /* -------------------- Fix Image Size 修正圖片大小 -------------------- */
-.fixed-height.svelte-rlgzoo {
+#img2img_image .fixed-height.svelte-rlgzoo,
+#img2img_sketch .fixed-height.svelte-rlgzoo,
+#img2maskimg .fixed-height.svelte-rlgzoo,
+#inpaint_sketch .fixed-height.svelte-rlgzoo {
     height: 100% !important;
 }
 
