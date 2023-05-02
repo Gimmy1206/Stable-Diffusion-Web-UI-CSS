@@ -1,7 +1,7 @@
 /* 
     Gradio 網頁 CSS
     設計者：Gimmy
-    修改日期：2023/03/29
+    修改日期：2023/05/02
 */
 
 /* -------------------- Variable 自訂變數 -------------------- */
@@ -123,7 +123,7 @@
 
     /* -------------------- Body 基本樣式 -------------------- */
     --body-text-weight: var(--text-weight-rg);
-    --body-text-size: var(--text-md);
+    --body-text-size: var(--text-sm);
     --body-text-color: var(--color-text-primary);
     --body-text-color-subdued: var(--color-text-secondary);
     --body-background-fill: var(--background-fill-primary);
@@ -236,7 +236,7 @@
 
     --checkbox-label-padding: var(--padding-md);
     --checkbox-label-text-weight: var(--text-weight-rg);
-    --checkbox-label-text-size: var(--text-md);
+    --checkbox-label-text-size: var(--text-sm);
     --checkbox-label-text-color: var(--color-text-primary);
     --checkbox-label-text-color-selected: var(--checkbox-label-text-color);
     --checkbox-label-background-fill: var(--background-fill-accent);
@@ -254,7 +254,7 @@
     /* -------------------- Input 輸入框樣式 -------------------- */
     --input-padding: var(--padding-md);
     --input-text-weight: var(--text-weight-md);
-    --input-text-size: var(--text-md);
+    --input-text-size: var(--text-sm);
     --input-placeholder-color: var(--color-text-secondary);
     --input-background-fill: var(--background-fill-accent-soft);
     --input-background-fill-hover: var(--background-fill-accent-soft);
@@ -296,7 +296,7 @@
 }
 
 html {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
 }
 
 .hidden {
@@ -544,7 +544,7 @@ div.form {
 .gradio-dropdown ul.options li.item {
     padding: var(--padding-md);
     font-weight: var(--text-weight-rg);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
 }
 
 .gradio-dropdown ul.options li.item:hover {
@@ -639,8 +639,8 @@ footer {
 }
 
 #quicksettings>div {
-    max-width: 60rem;
     min-width: 30rem;
+    max-width: fit-content;
 }
 
 /* -------------------- txt2img 文生圖區塊 -------------------- */
@@ -724,7 +724,7 @@ footer {
     display: flex;
     margin-bottom: var(--padding-md);
     padding: var(--padding-md);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     line-height: 2.8rem;
     align-self: center;
     flex-grow: 1;
@@ -799,6 +799,12 @@ footer {
 }
 
 /* -------------------- Extra Network (Card) 修正樣式 -------------------- */
+.extra-network-cards {
+    height: 7.25rem;
+    overflow: scroll;
+    resize: vertical;
+}
+
 .extra-network-cards .card {
     display: inline-block;
     position: relative;
@@ -840,7 +846,7 @@ footer {
 
 .extra-network-cards .card .actions .name {
     font-weight: var(--text-weight-bd);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     line-break: anywhere;
 }
 
@@ -1086,8 +1092,8 @@ footer {
 .dark .livePreview.livePreview {
     position: absolute;
     margin: 0;
-    background-color: var(--background-fill-accent);
-    border-width: var(--border-width-md);
+    background-color: var(--background-fill-transparent);
+    border-width: var(--border-width-sm);
     border-style: var(--border-style-secondary);
     border-color: var(--border-color-primary);
     border-radius: var(--embed-radius) !important;
@@ -1109,6 +1115,10 @@ footer {
     padding: var(--padding-md);
     background-color: var(--background-fill-transparent);
     border-radius: var(--embed-radius);
+}
+
+.grid-wrap.svelte-g4rw9.svelte-g4rw9 {
+    padding: 0rem;
 }
 
 /* -------------------- Fullpage Image Viewer 全視窗影像瀏覽修正樣式 -------------------- */
@@ -1225,6 +1235,27 @@ footer {
     z-index: 5;
 }
 
+#img2img_scale_resolution_preview.block {
+    display: flex;
+    align-items: end;
+}
+
+#img2img_column_batch {
+    align-self: end;
+}
+
+#img2img_unused_scale_by_slider {
+    visibility: hidden;
+    width: 0.6rem;
+    max-width: 0.6rem;
+    min-width: 0.6rem;
+}
+
+/* -------------------- Extra 區塊修正樣式 -------------------- */
+#extras_scale_to_tab div.form{
+    flex-direction: row;
+}
+
 /* -------------------- Extensions 區塊修正樣式 -------------------- */
 #settings {
     display: block;
@@ -1274,7 +1305,7 @@ footer {
 
 #tab_extensions button {
     min-width: 8rem;
-    max-width: 16em;
+    max-width: 20rem;
 }
 
 #tab_extensions input[disabled="disabled"] {
