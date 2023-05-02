@@ -86,6 +86,8 @@
     --text-weight-md: 500;
     --text-weight-bd: 700;
 
+    --object-fit: cover;
+
     --color-text-primary: var(--neutral-300);
     --color-text-secondary: var(--neutral-700);
     --color-accent: var(--primary-500);
@@ -1111,14 +1113,14 @@ footer {
     --ring-color: unset;
 }
 
-.preview.svelte-1tkea93.svelte-1tkea93 {
-    padding: var(--padding-md);
+.preview.svelte-g4rw9.svelte-g4rw9 {
+    padding: var(--padding-sm);
     background-color: var(--background-fill-transparent);
     border-radius: var(--embed-radius);
 }
 
 .grid-wrap.svelte-g4rw9.svelte-g4rw9 {
-    padding: 0rem;
+    padding: 0.2rem;
 }
 
 /* -------------------- Fullpage Image Viewer 全視窗影像瀏覽修正樣式 -------------------- */
