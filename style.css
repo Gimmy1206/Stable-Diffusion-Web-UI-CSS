@@ -345,6 +345,10 @@ div.gradio-html.min {
     height: var(--text-lg);
 }
 
+input[type=range].svelte-1cl284s {
+    margin-top: 6px;
+}
+
 textarea[style*="42px"] {
     height: unset !important;
 }
@@ -1085,7 +1089,7 @@ footer {
 #img2img_steps {
     flex-grow: 0 !important;
     flex-shrink: 1;
-    flex-basis: 19rem;
+    flex-basis: 25.6rem;
 }
 
 #txt2img_sampling,
@@ -1364,6 +1368,20 @@ footer {
     flex-wrap: nowrap;
 }
 
+#extras_upscaler_2,
+#extras_codeformer_weight {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 47rem !important;
+}
+
+#extras_upscaler_2_visibility,
+#extras_codeformer_visibility {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 23rem !important;
+}
+
 /* -------------------- Extensions 區塊修正樣式 -------------------- */
 #settings {
     display: block;
@@ -1441,4 +1459,3 @@ footer {
     flex-shrink: 1;
     flex-basis: 0%;
 }
-
