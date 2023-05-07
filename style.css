@@ -1,7 +1,7 @@
 /* 
     Gradio 網頁 CSS
     設計者：Gimmy
-    修改日期：2023/05/02
+    修改日期：2023/05/07
 */
 
 /* -------------------- Variable 自訂變數 -------------------- */
@@ -636,17 +636,51 @@ footer {
 }
 
 /* -------------------- Quick Settings 快速設定樣式 -------------------- */
-#quicksettings {
-    width: fit-content;
+#quicksettings>div {
+    min-width: unset !important;
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 30rem;
 }
 
-#quicksettings>div {
-    min-width: 30rem;
-    max-width: fit-content;
+#quicksettings>button {
+    min-width: unset !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 6rem;
 }
 
 /* -------------------- txt2img 文生圖區塊 -------------------- */
 /* -------------------- Token-Counter 提示詞計數器樣式 -------------------- */
+#txt2img_prompt_container,
+#img2img_prompt_container {
+    min-width: unset !important;
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 50rem;
+}
+
+#txt2img_actions_column,
+#img2img_actions_column {
+    min-width: unset !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 32rem;
+}
+
+.interrogate-col {
+    min-width: unset !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 10rem !important;
+}
+
+.interrogate-col>button {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
 .block.token-counter.token-counter {
     position: absolute;
     top: 0rem;
@@ -679,31 +713,43 @@ footer {
 #txt2img_generate_box,
 #img2img_generate_box {
     flex-grow: 1;
-    flex-shrink: 1;
+    flex-shrink: 0;
     flex-basis: auto;
 }
 
 #txt2img_tools,
 #img2img_tools {
     flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 4rem;
+    flex-shrink: 1;
+    flex-basis: auto;
 }
 
 #txt2img_styles_row,
 #img2img_styles_row {
     flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 7.8rem;
+    flex-shrink: 1;
+    flex-basis: auto;
 }
 
-.interrogate-col {
-    min-width: 0 !important;
-    max-width: fit-content;
+#txt2img_tools button,
+#img2img_tools button {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 4rem !important;
 }
 
-.interrogate-col>button {
-    flex: 1;
+#txt2img_styles,
+#img2img_styles {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 20rem !important;
+}
+
+#txt2img_styles_row button,
+#img2img_styles_row button {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 6rem !important;
 }
 
 /* -------------------- Extra Networks UI 修正樣式 -------------------- */
@@ -970,22 +1016,42 @@ footer {
 }
 
 /* -------------------- Dimensions & Batch 區塊修正樣式 -------------------- */
+#txt2img_settings,
+#img2img_settings {
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 60rem;
+}
+
+#txt2img_results,
+#img2img_results {
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 80rem;
+}
+
 #txt2img_column_size,
 #img2img_column_size {
-    min-width: 20rem !important;
-    max-width: 60rem !important;
-    flex-grow: 4 !important;
-    flex-shrink: 1;
-    flex-basis: auto;
+    min-width: unset !important;
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 20rem;
 }
 
 #txt2img_dimensions_row,
 #img2img_dimensions_row {
-    min-width: 4rem !important;
-    max-width: 6rem !important;
+    min-width: unset !important;
     flex-grow: 0 !important;
-    flex-shrink: 0;
+    flex-shrink: 1;
     flex-basis: 6rem;
+}
+
+#txt2img_column_batch,
+#img2img_column_batch {
+    min-width: unset !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 19rem;
 }
 
 #txt2img_dimensions_row>div,
@@ -1000,50 +1066,54 @@ footer {
     height: 100%;
 }
 
-#txt2img_column_batch,
-#img2img_column_batch {
-    min-width: 20rem !important;
-    max-width: 60rem !important;
-    flex-grow: 1 !important;
-    flex-shrink: 1;
-    flex-basis: auto;
-}
-
 #image_buttons_txt2img>button.gradio-button,
 #image_buttons_img2img>button.gradio-button {
-    min-width: 20rem !important;
+    min-width: 12rem !important;
     max-width: 40rem !important;
     flex-grow: 1 !important;
     flex-shrink: 1;
-    flex-basis: 0%;
+    flex-basis: 12rem;
 }
 
 #txt2img_seed,
 #img2img_seed {
-    flex-grow: 1;
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+}
+
+#txt2img_steps,
+#img2img_steps {
+    flex-grow: 0 !important;
     flex-shrink: 1;
+    flex-basis: 19rem;
+}
+
+#txt2img_sampling,
+#img2img_sampling {
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 20rem;
 }
 
 #txt2img_random_seed,
 #img2img_random_seed {
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
     flex-basis: 6rem;
 }
 
 #txt2img_reuse_seed,
 #img2img_reuse_seed {
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
     flex-basis: 6rem;
 }
 
 #txt2img_subseed_show,
 #img2img_subseed_show {
-    width: 7.5rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 7.5rem;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 7.5rem !important;
 }
 
 .checkboxes-row>div,
@@ -1061,6 +1131,29 @@ footer {
 
 #txtimg_hr_finalres .resolution {
     font-weight: var(--text-weight-bd);
+}
+
+/* -------------------- Script 腳本樣式 -------------------- */
+#script_txt2txt_xyz_plot_x_type,
+#script_txt2txt_xyz_plot_y_type,
+#script_txt2txt_xyz_plot_z_type,
+#script_img2img_xyz_plot_x_type,
+#script_img2img_xyz_plot_y_type,
+#script_img2img_xyz_plot_z_type {
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 15rem;
+}
+
+#script_txt2txt_xyz_plot_x_values,
+#script_txt2txt_xyz_plot_y_values,
+#script_txt2txt_xyz_plot_z_values,
+#script_img2img_xyz_plot_x_values,
+#script_img2img_xyz_plot_y_values,
+#script_img2img_xyz_plot_z_values {
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 25rem;
 }
 
 /* -------------------- Live Preview 及時預覽區塊修正樣式 -------------------- */
@@ -1217,15 +1310,24 @@ footer {
 }
 
 /* -------------------- img2img 區塊修正樣式 -------------------- */
+#img2img_label_copy_to_img2img,
+#img2img_label_copy_to_sketch,
+#img2img_label_copy_to_inpaint,
+#img2img_label_copy_to_inpaint_sketch {
+    display: flex;
+    min-width: unset !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 10rem;
+}
+
 #img2img_copy_to_img2img>button.gradio-button,
 #img2img_copy_to_sketch>button.gradio-button,
 #img2img_copy_to_inpaint>button.gradio-button,
 #img2img_copy_to_inpaint_sketch>button.gradio-button {
-    min-width: 12rem !important;
-    max-width: 40rem !important;
     flex-grow: 1 !important;
-    flex-shrink: 1;
-    flex-basis: 0%;
+    flex-shrink: 0;
+    flex-basis: 11rem;
 }
 
 #img2img_sketch,
@@ -1256,6 +1358,10 @@ footer {
 /* -------------------- Extra 區塊修正樣式 -------------------- */
 #extras_scale_to_tab div.form{
     flex-direction: row;
+}
+
+#extras_scale_to_tab div.gradio-row{
+    flex-wrap: nowrap;
 }
 
 /* -------------------- Extensions 區塊修正樣式 -------------------- */
@@ -1335,3 +1441,4 @@ footer {
     flex-shrink: 1;
     flex-basis: 0%;
 }
+
