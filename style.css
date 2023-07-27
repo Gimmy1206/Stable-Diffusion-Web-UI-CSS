@@ -1,7 +1,7 @@
 /* 
     Gradio 網頁 CSS
     設計者：Gimmy
-    修改日期：2023/05/07
+    修改日期：2023/07/27
 */
 
 /* -------------------- Variable 自訂變數 -------------------- */
@@ -349,6 +349,10 @@ input[type=range].svelte-1cl284s {
     margin-top: 6px;
 }
 
+input.svelte-1g4zxts.svelte-1g4zxts.svelte-1g4zxts {
+    margin: var(--margin-sm);
+}
+
 textarea[style*="42px"] {
     height: unset !important;
 }
@@ -358,13 +362,6 @@ textarea[style*="42px"] {
 #txt2img_neg_prompt textarea,
 #img2img_neg_prompt textarea {
     font-family: var(--font-mono);
-}
-
-.performance p {
-    font-weight: var(--prose-header-text-weight) !important;
-    font-size: var(--prose-text-size) !important;
-    color: var(--color-text-secondary) !important;
-    display: inline-block
 }
 
 /* -------------------- Fix Border Type 統一全元素框線 -------------------- */
@@ -403,6 +400,10 @@ div.gradio-gallery.gradio-gallery,
     border-radius: var(--embed-radius) !important;
 }
 
+div.global-popup-inner {
+    color: var(--color-text-primary);
+}
+
 /* -------------------- Fix Image Size 修正圖片大小 -------------------- */
 #img2img_image .fixed-height.svelte-rlgzoo,
 #img2img_sketch .fixed-height.svelte-rlgzoo,
@@ -438,8 +439,8 @@ button.custom-button {
 }
 
 button.gradio-button.tool.tool {
-    min-width: 4rem;
-    max-width: 6rem;
+    min-width: 4rem !important;
+    max-width: 6rem !important;
 }
 
 button.gradio-button.gradio-button,
@@ -784,8 +785,24 @@ footer {
     flex-basis: auto;
 }
 
-/* -------------------- Refresh 重新整理按鈕修正樣式 -------------------- */
-#txt2img_extra_refresh {
+/* -------------------- Sort 分類按鈕修正樣式 -------------------- */
+#txt2img_extra_sort,
+#img2img_extra_sort {
+    display: flex;
+    margin-bottom: var(--padding-md);
+    padding: var(--padding-sm) !important;
+    border-width: var(--border-width-sm) !important;
+    line-height: 2.1rem;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 14rem;
+}
+/* -------------------- Refresh 重新整理、排序按鈕修正樣式 -------------------- */
+#txt2img_extra_sortorder,
+#img2img_extra_sortorder,
+#txt2img_extra_refresh,
+#img2img_extra_refresh {
     min-width: 6.8rem;
     max-width: fit-content;
     display: flex;
@@ -795,71 +812,39 @@ footer {
     flex-basis: 6.8rem;
 }
 
-/* -------------------- Extra Network (Thumbs) 修正樣式 -------------------- */
-.extra-network-thumbs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--layout-gap);
+/* -------------------- Extra Network (No Card) 修正樣式 -------------------- */
+.extra-network-cards .nocards {
+    padding: var(--padding-md);
 }
 
-.extra-network-thumbs .card {
-    position: relative;
-    background-image: url('./file=html/card-no-preview.png');
-    background-size: cover;
-    background-position: center center;
-    border-radius: var(--embed-radius);
-    cursor: pointer;
-}
-
-.extra-network-thumbs .card:hover .additional a {
-    display: inline-block;
-}
-
-.extra-network-thumbs .actions .additional a {
-    display: none;
-    position: absolute;
-    top: var(--padding-md);
-    left: var(--padding-md);
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 0;
-    background-image: url('./file=html/image-update.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-.extra-network-thumbs .actions .name {
-    position: absolute;
-    bottom: 0;
-    padding: var(--padding-lg);
-    width: 100%;
-    font-weight: var(--text-weight-bd);
-    font-size: var(--text-xs);
+.extra-network-cards .nocards h1 {
+    font-size: var(--text-lg);
     color: var(--color-text-primary);
-    background: hsla(0, 0%, 0%, 0.5);
-    border-radius: 0 0 var(--embed-radius) var(--embed-radius);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
-.extra-network-thumbs .card:hover .actions .name {
-    white-space: normal;
-    word-break: break-all;
+.extra-network-cards .nocards li {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
 }
 
 /* -------------------- Extra Network (Card) 修正樣式 -------------------- */
 .extra-network-cards {
-    height: 7.25rem;
-    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 20.6rem;
+    overflow-y: auto;
     resize: vertical;
 }
 
 .extra-network-cards .card {
     display: inline-block;
     position: relative;
+    margin: 0.3rem;
+    width: 15rem;
+    height: 20rem;
     background-image: url('./file=html/card-no-preview.png');
     background-size: auto 100%;
     background-position: center;
@@ -867,6 +852,29 @@ footer {
     box-shadow: var(--shadow-drop);
     overflow: hidden;
     cursor: pointer;
+}
+
+.card.standalone-card-preview {
+    display: inline-block;
+    position: relative;
+    width: 18rem;
+    height: 24rem;
+    background-image: url('./file=html/card-no-preview.png');
+    background-size: auto 100%;
+    background-position: center;
+    border-radius: var(--embed-radius);
+    box-shadow: var(--shadow-drop);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.extra-network-cards .card .preview,
+.card.standalone-card-preview .preview {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--embed-radius);
 }
 
 .extra-network-cards .card:hover {
@@ -931,51 +939,77 @@ footer {
     color: var(--color-accent);
 }
 
-/* -------------------- Extra Network (No Card) 修正樣式 -------------------- */
-.extra-network-cards .nocards,
-.extra-network-thumbs .nocards {
-    padding: var(--padding-md);
-}
-
-.extra-network-cards .nocards h1,
-.extra-network-thumbs .nocards h1 {
-    font-size: var(--text-lg);
-    color: var(--color-text-primary);
-}
-
-.extra-network-cards .nocards li,
-.extra-network-thumbs .nocards li {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-}
-
 /* -------------------- Extra Network Metadata 修正樣式 -------------------- */
-.extra-network-cards .card .metadata-button:before,
-.extra-network-thumbs .card .metadata-button:before {
+.extra-network-cards .card .button-row {
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+.extra-network-cards .card:hover .button-row {
+    display: flex;
+}
+
+.extra-network-cards .card .metadata-button:before {
     content: "🛈";
 }
 
-.extra-network-cards .card .metadata-button,
-.extra-network-thumbs .card .metadata-button {
-    display: none;
-    position: absolute;
+.extra-network-cards .card .edit-button:before {
+    content: "🛠";
+}
+
+.extra-network-cards .card .card-button {
     top: var(--padding-sm);
     right: var(--padding-md);
-    width: 2.4rem;
+    width: 3rem;
     font-weight: var(--text-weight-rg);
     font-size: 2.4rem;
     color: var(--color-text-primary);
     text-shadow: var(--shadow-drop);
 }
 
-.extra-network-cards .card:hover .metadata-button,
-.extra-network-thumbs .card:hover .metadata-button {
-    display: inline-block;
+.extra-network-cards .card .card-button:hover {
+    color: var(--color-accent);
 }
 
-.extra-network-cards .card .metadata-button:hover,
-.extra-network-thumbs .card .metadata-button:hover {
-    color: var(--color-accent);
+div.block.gradio-box.edit-user-metadata {
+    width: 60rem;
+    background: var(--body-background-fill);
+}
+
+.edit-user-metadata .extra-network-name {
+    font-size: 1.8rem;
+    color: var(--body-text-color);
+}
+
+.edit-user-metadata .file-metadata {
+    color: var(--body-text-color);
+}
+
+.edit-user-metadata>.form,
+.edit-user-metadata>.gradio-highlightedtext,
+.edit-user-metadata>.gradio-row {
+    margin-top: var(--padding-md);
+}
+
+.edit-user-metadata .file-metadata th {
+    text-align: left;
+}
+
+.edit-user-metadata .file-metadata th,
+.edit-user-metadata .file-metadata td {
+    padding: var(--padding-md);
+}
+
+.edit-user-metadata .wrap.translucent{
+    background: var(--body-background-fill);
+}
+.edit-user-metadata .gradio-highlightedtext span{
+    word-break: break-word;
+}
+
+.edit-user-metadata-buttons{
+    margin-top: var(--padding-md);
 }
 
 /* -------------------- Extra Network Metadata Fullscreen 全螢幕修正樣式 -------------------- */
@@ -1048,6 +1082,8 @@ footer {
     flex-grow: 0 !important;
     flex-shrink: 1;
     flex-basis: 6rem;
+    flex-direction: row;
+    place-content: center;
 }
 
 #txt2img_column_batch,
@@ -1060,12 +1096,6 @@ footer {
 
 #txt2img_dimensions_row>div,
 #img2img_dimensions_row>div {
-    width: 100%;
-    height: 100%;
-}
-
-#txt2img_res_switch_btn,
-#img2img_res_switch_btn {
     width: 100%;
     height: 100%;
 }
@@ -1130,11 +1160,32 @@ footer {
 
 /* -------------------- Hires. Fix 文字提示修正樣式 -------------------- */
 #txtimg_hr_finalres {
-    line-height: 3.8rem !important;
+    line-height: 3.5rem !important;
 }
 
 #txtimg_hr_finalres .resolution {
     font-weight: var(--text-weight-bd);
+}
+
+#txt2img_hr_upscaler,
+#txt2img_hr_scale {
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 16rem;
+}
+
+#txt2img_hires_steps,
+#txt2img_hr_resize_x {
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 19rem;
+}
+
+#txt2img_denoising_strength,
+#txt2img_hr_resize_y {
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 21rem;
 }
 
 /* -------------------- Script 腳本樣式 -------------------- */
@@ -1146,7 +1197,7 @@ footer {
 #script_img2img_xyz_plot_z_type {
     flex-grow: 0 !important;
     flex-shrink: 1;
-    flex-basis: 15rem;
+    flex-basis: 16rem;
 }
 
 #script_txt2txt_xyz_plot_x_values,
@@ -1383,6 +1434,10 @@ footer {
 }
 
 /* -------------------- Extensions 區塊修正樣式 -------------------- */
+.ui-defaults-none{
+    color: var(--body-text-color);
+}
+
 #settings {
     display: block;
 }
@@ -1411,6 +1466,22 @@ footer {
     margin-left: 1rem;
 }
 
+#settings span{
+    color: var(--color-text-secondary);
+}
+
+#settings span .settings-comment {
+    display: inline
+}
+
+.settings-comment a{
+    text-decoration: underline;
+}
+
+.settings-comment .info{
+    opacity: 0.75;
+}
+
 /* -------------------- Extensions 區塊修正樣式 -------------------- */
 #tab_extensions table {
     border-collapse: collapse;
@@ -1431,7 +1502,7 @@ footer {
 
 #tab_extensions button {
     min-width: 8rem;
-    max-width: 20rem;
+    max-width: 22rem;
 }
 
 #tab_extensions input[disabled="disabled"] {
@@ -1444,11 +1515,67 @@ footer {
     color: var(--color-text-secondary) !important;
 }
 
+#available_extensions .info{
+    margin: 0.5em 0;
+    display: flex;
+    margin-top: auto;
+    opacity: 0.80;
+}
+
 #available_extensions .date_added {
     font-weight: var(--text-weight-bd);
     font-size: var(--text-sm);
     color: var(--color-text-secondary) !important;
     opacity: 0.85;
+}
+
+#available_extensions .star_count{
+    margin-left: auto;
+    display: inline-block;
+}
+
+#tabs_extensions>div.gradio-tabitem>div.gap>div.gradio-row>div.form>fieldset.gradio-checkboxgroup {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 50rem !important;
+}
+
+#tabs_extensions>div.gradio-tabitem>div.gap>div.gradio-row>div.form>fieldset.gradio-radio {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 48rem !important;
+}
+
+#extensions_backup_top_row>div,
+#extensions_backup_top_row2>div {
+    flex-grow: 1 !important;
+    flex-shrink: 0;
+    flex-basis: 70rem;
+}
+
+#extensions_backup_top_row>button,
+#extensions_backup_top_row2>button {
+    flex-grow: 0 !important;
+    flex-shrink: 1;
+    flex-basis: 22rem;
+}
+
+#extension_backup_saved_configs {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 60rem !important;
+}
+
+#refresh_config_states {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 6rem !important;
+}
+
+#extension_backup_restore_type {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    flex-basis: 28rem !important;
 }
 
 /* -------------------- Addition Networks 區塊修正樣式 -------------------- */
