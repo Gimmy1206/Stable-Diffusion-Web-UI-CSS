@@ -364,6 +364,13 @@ textarea[style*="42px"] {
     font-family: var(--font-mono);
 }
 
+.performance p {
+    font-weight: var(--prose-header-text-weight) !important;
+    font-size: var(--prose-text-size) !important;
+    color: var(--color-text-secondary) !important;
+    display: inline-block
+}
+
 /* -------------------- Fix Border Type 統一全元素框線 -------------------- */
 div.gradio-dropdown.gradio-dropdown,
 div.gradio-slider.gradio-slider,
